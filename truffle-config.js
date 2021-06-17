@@ -27,7 +27,7 @@ const infuraKey = "2a96c52920a4462685a2508ceca89297";
 //
 const fs = require('fs');
 const HDWalletProvider = require('@truffle/hdwallet-provider');
-const mnemonic = "tonight document regret donkey fame acoustic uncover evil inquiry aerobic volcano screen";
+const mnemonic = fs.readFileSync(".secret").toString().trim();
 
 module.exports = {
   /**

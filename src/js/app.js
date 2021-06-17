@@ -1,3 +1,4 @@
+TruffleContract = require("truffle-contract");
 App = {
     web3Provider: null,
     contracts: {},
@@ -74,7 +75,7 @@ App = {
         }
         // If no injected web3 instance is detected, fall back to Ganache
         else {
-            App.web3Provider = new Web3.providers.HttpProvider('http://localhost:7545');
+            App.web3Provider = new Web3.providers.HttpProvider('http://localhost:9545');
         }
 
         App.getMetaskAccountID();
@@ -99,7 +100,7 @@ App = {
 
     initSupplyChain: function () {
         /// Source the truffle compiled smart contracts
-        var jsonSupplyChain='../../build/contracts/SupplyChain.json';
+        var jsonSupplyChain='../build/contracts/SupplyChain.json';
         
         /// JSONfy the smart contracts
         $.getJSON(jsonSupplyChain, function(data) {
