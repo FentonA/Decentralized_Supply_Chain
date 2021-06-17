@@ -227,7 +227,7 @@ contract SupplyChain is FarmerRole, ConsumerRole, DistributorRole, RetailerRole,
     
     // Update the appropriate fields - ownerID, distributorID, itemState
     items[_upc].ownerID = msg.sender;
-    items[_upc].distributorID = items[_upc].ownerID;
+    items[_upc].distributorID = msg.sender;
     items[_upc].itemState = State.Sold;
     // Transfer money to farmer
     
@@ -334,7 +334,7 @@ contract SupplyChain is FarmerRole, ConsumerRole, DistributorRole, RetailerRole,
   {
     // Assign values to the 9 parameters
   itemSKU = items[_upc].sku;
-  itemUPC = _upc;
+  itemUPC = items[_upc].upc;
   productID = items[_upc].productID;
   productNotes = items[_upc].productNotes;
   productPrice = items[_upc].productPrice;
